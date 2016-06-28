@@ -37,4 +37,17 @@
 	<bean id="accountService" class="com.swadesibank.transaction.service.AccountService">
 		<property name="accountDao" ref="accountDao"/> 
 	</bean>
+	
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="accountDaoV2" class="com.swadesibank.transaction.daoImpl.AccountDaoImplV2">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/> 
+		<property name="transactionTemplate" ref="transactionTemplate"/>
+	</bean>
+	
+	<bean id="accountServiceV2" class="com.swadesibank.transaction.service.AccountServiceV2">
+		<property name="accountDao" ref="accountDaoV2"/> 
+	</bean>
 </beans>
