@@ -77,7 +77,7 @@ Using Programmatic Approach
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="myDataSource"></property>
 	</bean>
-	
+	<!--Using PlatformTransactionManager -->
 	<bean id="accountDao" class="com.swadesibank.transaction.daoImpl.AccountDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/> 
 		<property name="platformTxManager" ref="transactionManager"/>
@@ -90,7 +90,7 @@ Using Programmatic Approach
 	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
 		<property name="transactionManager" ref="transactionManager"/>
 	</bean>
-	
+	<!--Using TransactionTemplate -->
 	<bean id="accountDaoV2" class="com.swadesibank.transaction.daoImpl.AccountDaoImplV2">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/> 
 		<property name="transactionTemplate" ref="transactionTemplate"/>
