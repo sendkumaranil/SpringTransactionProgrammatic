@@ -87,13 +87,3 @@ public class AccountDaoImpl extends JdbcDaoSupport implements IAccountDao {
 		
 	}
 }
-class AccountRowMapper implements RowMapper<Account> {
-
-	@Override
-	public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Account account=new Account();
-		account.setAccountno(rs.getInt("accountno"));
-		account.setBalance(rs.getDouble("balance"));
-		return account;
-	}
-}
